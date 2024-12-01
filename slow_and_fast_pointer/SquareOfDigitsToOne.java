@@ -6,13 +6,13 @@ public class SquareOfDigitsToOne {
     }
 
     public static boolean checkDigitToOne( int num) {
-        int fast;
-        int slow;
-        while (num != 1) {
-            slow = getSumOfDigits(num);
-            fast = getSumOfDigits(getSumOfDigits(num));
+        int fast = num;
+        int slow = num;
+        while (fast != 1 && slow != 1) {
+            slow = getSumOfDigits(slow);
+            fast = getSumOfDigits(getSumOfDigits(fast));
             if (fast == slow && fast != 1) return false;
-            num = slow;
+
         }
         return true;
     }
